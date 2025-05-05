@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Доступ к видео</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Введите ваш логин</h2>
+    <input type="text" id="login" placeholder="например: atabek">
+    <br>
+    <button onclick="goToVideo()">Смотреть видео</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <script>
+    function goToVideo() {
+      const login = document.getElementById("login").value.trim().toLowerCase();
+      const allowedUsers = ["atabek", "arnur", "yerasyl", "kasymkhan", "oleg", "nazarbek", "danial", "ivan", "miras", "artur", "zhandaulet", "alizhan", "aser", "eldar", "asanali"]; // список допустимых логинов
+
+      if (allowedUsers.includes(login)) {
+        // перенаправление на video.html с ID
+        window.location.href = `video.html?id=${login}`;
+      } else {
+        document.getElementById("error").textContent = "Неверный логин. Попробуйте снова.";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ваше видео</title>
+  <style>
+    body { margin: 0; background: black; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    video { width: 100%; max-width: 800px; }
+  </style>
+</head>
+<body>
+  <script>
+    const videoMap = {
+      "arnur": "videos/arnur.mov",
+      "atabek": "videos/atabek.mp4",
+      "miras": "videos/miras.mp4",
+      "eldar": "videos/eldar.mp4",
+      "yerasyl": "videos/yerasyl.mp4",
+      "danial": "videos/danial.mp4",
+      "asanali": "videos/asanali.mp4",
+      "alizhan": "videos/alizhan.mp4",
+      "ivan": "videos/ivan.mp4",
+      "aser": "videos/aser.mp4",
+      "zhandaulet": "videos/zhandaulet.mp4",
+      "artur": "videos/artur.mp4",
+      "kasymkhan": "videos/kasymkhan.mp4",
+      "nazarbek": "videos/nazarbek.mp4",
+      "oleg" : "videos/oleg.mp4" 
+      };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const videoSrc = videoMap[id];
+
+    if (videoSrc) {
+      document.write(`
+        <video controls autoplay>
+          <source src="${videoSrc}" type="video/mp4">
+          Ваш браузер не поддерживает видео.
+        </video>
+      `);
+    } else {
+      document.write("<h2 style='color:white'>Видео не найдено</h2>");
+    }
+  </script>
+</body>
+</html>
